@@ -15,6 +15,22 @@ entries:
     version: 0.1.0
   redpanda-console:
   - apiVersion: v2
+    appVersion: v2.7.2
+    created: "2024-10-21T11:51:46.215719118Z"
+    description: Helm chart to deploy Redpanda Console.
+    digest: c317edd30fcce264cb491a9911db2d1553dfd221ab0a41ef1e5dbc32354d53bd
+    icon: https://images.ctfassets.net/paqvtpyf8rwu/3cYHw5UzhXCbKuR24GDFGO/73fb682e6157d11c10d5b2b5da1d5af0/skate-stand-panda.svg
+    maintainers:
+    - name: redpanda-data
+      url: https://github.com/orgs/redpanda-data/people
+    name: redpanda-console
+    sources:
+    - https://github.com/zeroflucs-given/helm-charts
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/redpanda-console-0.7.30/redpanda-console-0.7.30.tgz
+    version: 0.7.30
+  - apiVersion: v2
     appVersion: v2.4.6
     created: "2024-05-15T09:46:23.399076853Z"
     description: Helm chart to deploy Redpanda Console.
@@ -62,4 +78,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/redpanda-console-0.7.11/redpanda-console-0.7.11.tgz
     version: 0.7.11
-generated: "2024-05-15T09:46:23.399095658Z"
+generated: "2024-10-21T11:51:46.215735558Z"
