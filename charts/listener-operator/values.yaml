@@ -1,0 +1,164 @@
+# Default values for listener-operator.
+---
+# Used by both the Controller Service and Node Service containers
+image:
+  repository: oci.stackable.tech/sdp/listener-operator
+  # tag: 0.0.0-dev
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+csiProvisioner:
+  podAnnotations: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+  # priority: ...
+  # priorityClassName: ...
+  # preemptionPolicy: ...
+
+  controllerService:
+    resources:
+      # Resource requests and limits for the controller pod
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+    securityContext:
+      # listener-operator requires root permissions
+      runAsUser: 0
+      seLinuxOptions:
+        # Run as "Super Privileged Container" to be allowed to write into
+        # the Listener volumes
+        type: spc_t
+      # capabilities:
+      #   drop:
+      #   - ALL
+      # readOnlyRootFilesystem: true
+      # runAsNonRoot: true
+      # runAsUser: 1000
+
+  externalProvisioner:
+    image:
+      repository: oci.stackable.tech/sdp/sig-storage/csi-provisioner
+      tag: v5.3.0
+      pullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+csiNodeDriver:
+  podAnnotations: {}
+
+  podSecurityContext: {}
+    # fsGroup: 2000
+
+  nodeSelector: {}
+
+  tolerations: []
+
+  affinity: {}
+
+  # priorityClassName: ...
+
+  nodeService:
+    resources:
+      # Resource requests and limits for the controller pod
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+    securityContext:
+      # listener-operator requires root permissions
+      runAsUser: 0
+      seLinuxOptions:
+        # Run as "Super Privileged Container" to be allowed to write into
+        # the Listener volumes
+        type: spc_t
+      # capabilities:
+      #   drop:
+      #   - ALL
+      # readOnlyRootFilesystem: true
+      # runAsNonRoot: true
+      # runAsUser: 1000
+
+  nodeDriverRegistrar:
+    image:
+      repository: oci.stackable.tech/sdp/sig-storage/csi-node-driver-registrar
+      tag: v2.15.0
+      pullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# Provide additional labels which get attached to all deployed resources
+labels:
+  stackable.tech/vendor: Stackable
+
+# When running on a non-default Kubernetes cluster domain, the cluster domain can be configured here.
+# See the https://docs.stackable.tech/home/stable/guides/kubernetes-cluster-domain guide for details.
+# kubernetesClusterDomain: my-cluster.local
+
+# Kubelet dir may vary in environments such as microk8s, see https://github.com/stackabletech/secret-operator/issues/229
+kubeletDir: /var/lib/kubelet
+
+# Options: none, stable-nodes, ephemeral-nodes (default)
+# none: No ListenerClasses are preinstalled, administrators must supply them themselves
+# stable-nodes: ListenerClasses are preinstalled that are suitable for on-prem/"pet" environments, assuming long-running Nodes but not requiring a LoadBalancer controller
+# ephemeral-nodes: ListenerClasses are preinstalled that are suitable for cloud/"cattle" environments with short-lived nodes, however this requires a LoadBalancer controller to be installed
+preset: ephemeral-nodes
+
+maintenance:
+  endOfSupportCheck:
+    enabled: true
+    # mode: offline
+    # interval: 24h
+
+  customResourceDefinitions:
+    maintain: true
+
+# See all available options and detailed explanations about the concept here:
+# https://docs.stackable.tech/home/stable/concepts/telemetry/
+telemetry:
+  consoleLog:
+    enabled: true
+  fileLog:
+    enabled: false
+    rotationPeriod: hourly
+    maxFiles: 6
+  otelLogExporter:
+    enabled: false
+  otelTraceExporter:
+    enabled: false

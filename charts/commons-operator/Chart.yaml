@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 26.3.0
+description: The Stackable Operator for Stackable Commons
+home: https://github.com/stackabletech/commons-operator
+maintainers:
+- name: Stackable
+  url: https://www.stackable.tech
+name: commons-operator
+version: 26.3.0

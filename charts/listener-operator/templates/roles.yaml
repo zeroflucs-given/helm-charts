@@ -1,0 +1,164 @@
+{{ if .Capabilities.APIVersions.Has "security.openshift.io/v1" }}
+---
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: listener-scc
+  labels:
+  {{- include "operator.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/description:
+      listener-scc includes the minimum required privileges to run the listener-operator.
+
+allowHostDirVolumePlugin: true
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegeEscalation: false
+allowPrivilegedContainer: false
+allowedCapabilities: []
+defaultAddCapabilities: null
+fsGroup:
+  type: MustRunAs
+groups: []
+priority: null
+readOnlyRootFilesystem: true
+requiredDropCapabilities:
+  - ALL
+runAsUser:
+  type: MustRunAs
+  uid: 0
+seLinuxContext:
+  # Permit access to the resources in all namespaces
+  type: RunAsAny
+seccompProfiles:
+  - runtime/default
+supplementalGroups:
+  type: RunAsAny
+users: []
+volumes:
+  - emptyDir
+  - hostPath
+  - projected
+{{ end  }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "operator.fullname" . }}-clusterrole
+  labels:
+  {{- include "operator.labels" . | nindent 4 }}
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - events
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+      - create
+      - delete # Needed to set an ownerRef on already existing Services
+      - patch
+  - apiGroups:
+      - ""
+    resources:
+      - persistentvolumes
+    verbs:
+      - get
+      - list
+      - watch
+      - patch
+      - create
+      - delete
+  - apiGroups:
+      - ""
+    resources:
+      - nodes
+      - persistentvolumeclaims
+      - endpoints
+    verbs:
+      - get
+      - list
+      - watch
+  # For automatic cluster domain detection
+  - apiGroups:
+      - ""
+    resources:
+      - nodes/proxy
+    verbs:
+      - get
+  - apiGroups:
+      - storage.k8s.io
+    resources:
+      - csinodes
+      - storageclasses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - get
+      - patch
+  - apiGroups:
+      - events.k8s.io
+    resources:
+      - events
+    verbs:
+      - create
+      - patch
+  - apiGroups:
+      - listeners.stackable.tech
+    resources:
+      - listenerclasses
+      - listeners
+    verbs:
+      {{- if .Values.maintenance.customResourceDefinitions.maintain }}
+      - create
+      - patch
+      {{- end }}
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - listeners.stackable.tech
+    resources:
+      - listeners
+      - listeners/status
+      - listeners/finalizers
+      - podlisteners
+    verbs:
+      - patch
+      - create
+      - delete
+      - update
+{{ if .Capabilities.APIVersions.Has "security.openshift.io/v1" }}
+  - apiGroups:
+      - security.openshift.io
+    resourceNames:
+      - listener-scc
+    resources:
+      - securitycontextconstraints
+    verbs:
+      - use
+{{ end  }}
+# Required to maintain the CRD. The operator needs to do this, as it needs to enter e.g. it's
+# generated certificate in the conversion webhook.
+{{ if .Values.maintenance.customResourceDefinitions.maintain }}
+  - apiGroups:
+      - apiextensions.k8s.io
+    resources:
+      - customresourcedefinitions
+    verbs:
+      - create
+      - patch
+      # Required for startup condition
+      - list
+      - watch
+{{ end }}

@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 26.3.0
+description: The Stackable Operator for Stackable Secret Operator
+home: https://github.com/stackabletech/secret-operator
+maintainers:
+- name: Stackable
+  url: https://www.stackable.tech
+name: secret-operator
+version: 26.3.0
