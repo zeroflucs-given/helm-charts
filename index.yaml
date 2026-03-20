@@ -1,5 +1,19 @@
 apiVersion: v1
 entries:
+  commons-operator:
+  - apiVersion: v2
+    appVersion: 26.3.0
+    created: "2026-03-20T12:06:14.288903449Z"
+    description: The Stackable Operator for Stackable Commons
+    digest: 5d3e2ac7077271b9fbe74fb5a99b261f9b93125b666f2aa403faeb575029cae1
+    home: https://github.com/stackabletech/commons-operator
+    maintainers:
+    - name: Stackable
+      url: https://www.stackable.tech
+    name: commons-operator
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/commons-operator-26.3.0/commons-operator-26.3.0.tgz
+    version: 26.3.0
   kafka-ui:
   - apiVersion: v2
     appVersion: v1.0.0
@@ -12,6 +26,20 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/kafka-ui-1.4.9/kafka-ui-1.4.9.tgz
     version: 1.4.9
+  listener-operator:
+  - apiVersion: v2
+    appVersion: 26.3.0
+    created: "2026-03-20T12:06:14.483035328Z"
+    description: The Stackable Operator for Stackable Listener Operator
+    digest: 4bffe3acf07141d4576043f8dc8a8fa868a698c7fd4ec651413d3e0c247088b1
+    home: https://github.com/stackabletech/listener-operator
+    maintainers:
+    - name: Stackable
+      url: https://www.stackable.tech
+    name: listener-operator
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/listener-operator-26.3.0/listener-operator-26.3.0.tgz
+    version: 26.3.0
   nats-webui:
   - apiVersion: v2
     appVersion: latest
@@ -106,4 +134,32 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/redpanda-console-0.7.11/redpanda-console-0.7.11.tgz
     version: 0.7.11
-generated: "2025-02-26T14:36:48.957419427Z"
+  secret-operator:
+  - apiVersion: v2
+    appVersion: 26.3.0
+    created: "2026-03-20T12:06:14.713529343Z"
+    description: The Stackable Operator for Stackable Secret Operator
+    digest: f6f20b176d88bb455350f01be8537bdc3f030eff5bdd4e2b627691172e4899ec
+    home: https://github.com/stackabletech/secret-operator
+    maintainers:
+    - name: Stackable
+      url: https://www.stackable.tech
+    name: secret-operator
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/secret-operator-26.3.0/secret-operator-26.3.0.tgz
+    version: 26.3.0
+  superset-operator:
+  - apiVersion: v2
+    appVersion: 26.3.0
+    created: "2026-03-20T12:06:14.933735162Z"
+    description: The Stackable Operator for Apache Superset
+    digest: e531e3d7db0f5faa984615a366ee4545f2c10a8ccf0b4f828719d8e4cbf4ece1
+    home: https://github.com/stackabletech/superset-operator
+    maintainers:
+    - name: Stackable
+      url: https://www.stackable.tech
+    name: superset-operator
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
+    version: 26.3.0
+generated: "2026-03-20T12:06:14.933753386Z"
