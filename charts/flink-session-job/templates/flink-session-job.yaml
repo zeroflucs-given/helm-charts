@@ -4,9 +4,9 @@ apiVersion: flink.apache.org/v1beta1
 kind: FlinkSessionJob
 metadata:
   name: {{ .name }}
-  namespace: {{ $.Values.namespace }}
+  namespace: {{ .namespace }}
 spec:
-  deploymentName: {{ $.Values.deploymentName }}
+  deploymentName: {{ .deploymentName }}
   job:
     jarURI: {{ .jarURI | quote }}
     parallelism: {{ .parallelism }}
