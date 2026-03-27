@@ -1,16 +1,19 @@
+{{- range .Values.jobs }}
+---
 apiVersion: flink.apache.org/v1beta1
 kind: FlinkSessionJob
 metadata:
-  name: {{ .Values.name }}
-  namespace: {{ .Values.namespace }}
+  name: {{ .name }}
+  namespace: {{ $.Values.namespace }}
 spec:
-  deploymentName: {{ .Values.deploymentName }}
+  deploymentName: {{ $.Values.deploymentName }}
   job:
-    jarURI: {{ .Values.jarURI | quote }}
-    parallelism: {{ .Values.parallelism }}
-    upgradeMode: {{ .Values.upgradeMode }}
-    state: {{ .Values.state }}
+    jarURI: {{ .jarURI | quote }}
+    parallelism: {{ .parallelism }}
+    upgradeMode: {{ .upgradeMode }}
+    state: {{ .state }}
     args:
-{{- range .Values.args }}
+{{- range .args }}
       - {{ . | quote }}
+{{- end }}
 {{- end }}
