@@ -1,0 +1,14 @@
+name: flink-bets-bronze
+namespace: default
+
+deploymentName: flink-session-cluster
+
+jarURI: http://flink-jar-server.default.svc:8080/flink-sql-runner.jar
+
+parallelism: 1
+
+upgradeMode: savepoint
+state: running
+
+args:
+  - "SELECT 1"
