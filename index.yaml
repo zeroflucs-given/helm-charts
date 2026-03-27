@@ -14,6 +14,17 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/commons-operator-26.3.0/commons-operator-26.3.0.tgz
     version: 26.3.0
+  flink-session-job:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2026-03-27T05:05:12.410806028Z"
+    description: Minimal Helm chart for FlinkSessionJob
+    digest: 382e7efac1753fcce2821a4ee4abb0a65f8e629c16892242f3a884cddbbcceb1
+    name: flink-session-job
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/flink-session-job-0.1.0/flink-session-job-0.1.0.tgz
+    version: 0.1.0
   kafka-ui:
   - apiVersion: v2
     appVersion: v1.0.0
@@ -162,4 +173,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-03-20T12:06:14.933753386Z"
+generated: "2026-03-27T05:05:12.410824673Z"
