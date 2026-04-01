@@ -1,0 +1,19 @@
+{{- range $name, $job := .Values.jobs }}
+---
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkSessionJob
+metadata:
+  name: {{ $name }}
+  namespace: {{ $job.namespace }}
+spec:
+  deploymentName: {{ $job.deploymentName }}
+  job:
+    jarURI: {{ $job.jarURI | quote }}
+    parallelism: {{ $job.parallelism }}
+    upgradeMode: {{ $job.upgradeMode }}
+    state: {{ $job.state }}
+    args:
+{{- range $job.args }}
+      - {{ . | quote }}
+{{- end }}
+{{- end }}

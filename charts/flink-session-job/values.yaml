@@ -1,0 +1,23 @@
+namespace: default
+deploymentName: flink-session-cluster
+
+jobs:
+  - name: one-job
+    namespace: default
+    deploymentName: basic
+    jarURI: http://flink-jar-server.default.svc:8080/flink-sql-runner.jar
+    parallelism: 1
+    upgradeMode: savepoint
+    state: running
+    args:
+      - "SELECT 1"
+
+  - name: another-job
+    namespace: default
+    deploymentName: basic
+    jarURI: http://flink-jar-server.default.svc:8080/flink-sql-runner.jar
+    parallelism: 2
+    upgradeMode: stateless
+    state: running
+    args:
+      - "SELECT 2"
