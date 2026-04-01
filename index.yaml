@@ -17,6 +17,16 @@ entries:
   flink-session-job:
   - apiVersion: v2
     appVersion: "1.0"
+    created: "2026-04-01T07:30:54.626397254Z"
+    description: Minimal Helm chart for FlinkSessionJob
+    digest: 8ad5191537faf5107c49e2e5ea709aa742be124a2e2e549f00a00f9f9e2b83a1
+    name: flink-session-job
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/flink-session-job-0.1.2/flink-session-job-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: "1.0"
     created: "2026-04-01T06:55:42.178835453Z"
     description: Minimal Helm chart for FlinkSessionJob
     digest: d999dc0893321fda0cad32cd168f67298542296bae3c7ce0647534cb8ed9c2b4
@@ -240,4 +250,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-04-01T06:55:42.178852495Z"
+generated: "2026-04-01T07:30:54.626495052Z"
