@@ -1,0 +1,19 @@
+
+# IDE
+.idea
+.vscode
+.fleet
+
+# OS Specific
+.DS_Store
+thumbs.db
+
+# Common Junk
+*.tmp
+*.bak
+*.tar.gz
+*.tgz
+_*.yaml
+
+# Directories prefixed with an underscore
+_*/
