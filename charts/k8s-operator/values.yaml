@@ -1,0 +1,35 @@
+replicaCount: 1
+
+image:
+  repository: ""
+  tag: ""
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+
+serviceAccount:
+  create: true
+  name: ""
+
+resources: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+podLabels: {}
+
+rbac:
+  clusterRole: true
+  rules: []
+
+rbacProxy:
+  enabled: false
+  clusterRoleRules: []
+
+args: []
+env: {}
+
+autoscaling:
+  enabled: false
+
+linkerdPolicies: {}

@@ -1,0 +1,5 @@
+apiVersion: v2
+name: k8s-operator
+description: A minimal chart for deploying Kubernetes operators.
+type: application
+version: 0.0.1
