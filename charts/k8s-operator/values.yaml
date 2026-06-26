@@ -1,5 +1,7 @@
 replicaCount: 1
 
+fullnameOverride: ""
+
 image:
   repository: ""
   tag: ""
