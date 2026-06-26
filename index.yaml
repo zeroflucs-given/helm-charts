@@ -93,6 +93,15 @@ entries:
     version: 4.3.3
   k8s-operator:
   - apiVersion: v2
+    created: "2026-06-26T05:13:12.125826097Z"
+    description: A minimal chart for deploying Kubernetes operators.
+    digest: b9520ebc6c6d323132602c1ae446b7fe5ad3e39526cb6f7034a05fb7d80de1f4
+    name: k8s-operator
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/k8s-operator-0.0.2/k8s-operator-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     created: "2026-06-26T04:53:48.499780075Z"
     description: A minimal chart for deploying Kubernetes operators.
     digest: b8642f4a59ce6f2f4f1e54ba05326c4caf4d80011344ccd53e385426ad28b929
@@ -260,4 +269,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-06-26T04:53:48.499815321Z"
+generated: "2026-06-26T05:13:12.125849922Z"
