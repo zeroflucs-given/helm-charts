@@ -45,6 +45,20 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/flink-session-job-0.1.0/flink-session-job-0.1.0.tgz
     version: 0.1.0
+  grafana-alerts:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-08-05T00:07:46.878241716Z"
+    description: 'Aggregates service alert configurations into GrafanaAlertRuleGroups.  Services
+      register by creating ConfigMaps with label zeroflucs.io/grafana-alerts=true
+      in the grafana namespace. This chart discovers those ConfigMaps and builds consolidated
+      GrafanaAlertRuleGroup CRs per alert type. '
+    digest: 768ddd15ebe0ec091cfec5fe85841760624597dbb3923a6c9a3d8fd6f41d84bd
+    name: grafana-alerts
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/grafana-alerts-0.1.0/grafana-alerts-0.1.0.tgz
+    version: 0.1.0
   jupyterhub:
   - annotations:
       artifacthub.io/images: |
@@ -269,4 +283,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-06-26T05:13:12.125849922Z"
+generated: "2026-08-05T00:07:46.878293793Z"
