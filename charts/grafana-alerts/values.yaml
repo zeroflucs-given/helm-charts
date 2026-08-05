@@ -1,0 +1,34 @@
+# grafana-alerts chart values
+# These are the defaults - override per environment via config-{env}
+
+grafanaInstance: grafana
+grafanaNamespace: grafana
+
+# Default alert configurations
+# Services must explicitly enable each alert type they want
+
+grpcErrorRate:
+  enabled: false
+  isPaused: false
+  threshold: 9
+  duration: 5m
+  severity: critical
+  lookbackSeconds: 3600
+  noDataState: OK
+  execErrState: Error
+
+crashloop:
+  enabled: false
+  isPaused: false
+  duration: 10m
+  severity: critical
+  noDataState: OK
+  execErrState: Error
+
+podUnschedulable:
+  enabled: false
+  isPaused: false
+  duration: 15m
+  severity: critical
+  noDataState: OK
+  execErrState: Error

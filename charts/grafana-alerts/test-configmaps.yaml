@@ -1,0 +1,53 @@
+# Test ConfigMaps for grafana-alerts chart
+# Apply to UST: kubectl apply -f test-configmaps.yaml
+#
+# Services must explicitly enable each alert type they want
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-alerts-aggregation-gateway
+  namespace: grafana
+  labels:
+    zeroflucs.io/grafana-alerts: "true"
+data:
+  config.yaml: |
+    service: aggregation/aggregation-gateway
+    namespace: aggregation
+    name: aggregation-gateway
+    grpcErrorRate:
+      enabled: true
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-alerts-book-processor
+  namespace: grafana
+  labels:
+    zeroflucs.io/grafana-alerts: "true"
+data:
+  config.yaml: |
+    service: book/book-processor
+    namespace: book
+    name: book-processor
+    grpcErrorRate:
+      enabled: true
+      threshold: 15
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-alerts-model-query
+  namespace: grafana
+  labels:
+    zeroflucs.io/grafana-alerts: "true"
+data:
+  config.yaml: |
+    service: model/model-query
+    namespace: model
+    name: model-query
+    grpcErrorRate:
+      enabled: true

@@ -1,0 +1,11 @@
+apiVersion: v2
+name: grafana-alerts
+description: |
+  Aggregates service alert configurations into GrafanaAlertRuleGroups.
+  
+  Services register by creating ConfigMaps with label zeroflucs.io/grafana-alerts=true
+  in the grafana namespace. This chart discovers those ConfigMaps and builds
+  consolidated GrafanaAlertRuleGroup CRs per alert type.
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
