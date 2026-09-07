@@ -24,16 +24,4 @@ version: 0.1.0
 # Ref: https://github.com/helm/helm/issues/7858#issuecomment-608114589
 AppVersion: "v1.27.0"
 
-dependencies:
-  - name: ingress-nginx
-    version: 2.4.1
-    repository: "file://charts/ingress-nginx"
-    condition: ingress-nginx.enabled
-  - name: connector
-    repository: file://charts/connector
-    version: 0.1.1
-    condition: connector.enabled
-  - name: assist-api
-    repository: file://charts/assist-api
-    version: 0.1.1
-    condition: global.ee-components.enabled
+
