@@ -234,6 +234,7 @@ clickhouse:
   image:
     tag: "26.2-alpine"
   enabled: false
+  fullnameOverride: "clickhouse-databases-clickhouse"
 
 # For enterpriseEdition Only
 vault:
