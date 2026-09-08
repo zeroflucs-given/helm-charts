@@ -85,7 +85,7 @@ affinity: {}
 
 ## Child charts
 redis:
-  image:
+  enabled: true
     registry: ghcr.io
     repository: openreplay/valkey
     tag: 8
@@ -104,6 +104,7 @@ redis:
         memory: 128Mi
 
 postgresql:
+  enabled: true
   # postgresqlPassword: asayerPostgres
   fullnameOverride: postgresql
   postgresqlSharedPreloadLibraries: "pgaudit,pg_stat_statements"
@@ -121,6 +122,7 @@ postgresql:
       memory: 256Mi
 
 minio:
+  enabled: true
   # global:
   #  minio:
   #    accessKey: "{{ minio_access_key }}"
