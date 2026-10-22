@@ -198,6 +198,41 @@ entries:
   openreplay-databases:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2026-10-22T15:00:38.826163794Z"
+    dependencies:
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: file://charts/clickhouse
+      version: 0.1.0
+    - condition: kafka.enabled
+      name: kafka
+      repository: file://charts/kafka
+      version: 11.8.6
+    - condition: minio.enabled
+      name: minio
+      repository: file://charts/minio
+      version: 3.7.14
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: file://charts/postgresql
+      version: 9.8.2
+    - condition: redis.enabled
+      name: redis
+      repository: file://charts/redis
+      version: 12.10.1
+    - condition: vault.enabled
+      name: vault
+      repository: file://charts/vault
+      version: 0.22.1
+    description: A Helm chart for Kubernetes
+    digest: 6cfeb1836874b276863479ce7a84e46abb19fc15eaa45553d581730df15b794b
+    name: openreplay-databases
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/openreplay-databases-0.2.1/openreplay-databases-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2026-10-22T14:45:48.622073739Z"
     dependencies:
     - condition: clickhouse.enabled
@@ -455,4 +490,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-10-22T14:45:48.622123182Z"
+generated: "2026-10-22T15:00:38.826185807Z"
