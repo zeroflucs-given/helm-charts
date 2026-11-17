@@ -177,6 +177,16 @@ entries:
   openreplay:
   - apiVersion: v2
     appVersion: v1.28.0
+    created: "2026-11-17T03:55:21.12758017Z"
+    description: A Helm chart for Kubernetes
+    digest: 0d5f6692ca392d5b70d447451d8b278ca76c72b71d3e35fe136b0f267c058df8
+    name: openreplay
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/openreplay-0.2.1/openreplay-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
+    appVersion: v1.28.0
     created: "2026-10-22T14:45:48.278158216Z"
     description: A Helm chart for Kubernetes
     digest: c6e542a7aa572bb5edcb528928df5568dfc49afbe18968fc83153de2ad93b75c
@@ -490,4 +500,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-10-22T15:00:38.826185807Z"
+generated: "2026-11-17T03:55:21.12762881Z"
