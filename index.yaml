@@ -177,6 +177,16 @@ entries:
   openreplay:
   - apiVersion: v2
     appVersion: v1.28.0
+    created: "2026-11-25T12:45:51.691281098Z"
+    description: A Helm chart for Kubernetes
+    digest: ae0e78c1d7ab9a5bfdc5002a4bd00aa508b9d4992f05099ccb0c3d5a293aa982
+    name: openreplay
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/openreplay-0.2.2/openreplay-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v2
+    appVersion: v1.28.0
     created: "2026-11-17T03:55:21.12758017Z"
     description: A Helm chart for Kubernetes
     digest: 0d5f6692ca392d5b70d447451d8b278ca76c72b71d3e35fe136b0f267c058df8
@@ -206,6 +216,41 @@ entries:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/openreplay-0.1.0/openreplay-0.1.0.tgz
     version: 0.1.0
   openreplay-databases:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2026-11-25T12:45:51.924389976Z"
+    dependencies:
+    - condition: clickhouse.enabled
+      name: clickhouse
+      repository: file://charts/clickhouse
+      version: 0.1.0
+    - condition: kafka.enabled
+      name: kafka
+      repository: file://charts/kafka
+      version: 11.8.6
+    - condition: minio.enabled
+      name: minio
+      repository: file://charts/minio
+      version: 3.7.14
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: file://charts/postgresql
+      version: 9.8.2
+    - condition: redis.enabled
+      name: redis
+      repository: file://charts/redis
+      version: 12.10.1
+    - condition: vault.enabled
+      name: vault
+      repository: file://charts/vault
+      version: 0.22.1
+    description: A Helm chart for Kubernetes
+    digest: 7a4763af53d8e0cb359b63e4c1ea4fd82eda7d1683f6a00f794029df42e52aa7
+    name: openreplay-databases
+    type: application
+    urls:
+    - https://github.com/zeroflucs-given/helm-charts/releases/download/openreplay-databases-0.2.2/openreplay-databases-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2026-10-22T15:00:38.826163794Z"
@@ -500,4 +545,4 @@ entries:
     urls:
     - https://github.com/zeroflucs-given/helm-charts/releases/download/superset-operator-26.3.0/superset-operator-26.3.0.tgz
     version: 26.3.0
-generated: "2026-11-17T03:55:21.12762881Z"
+generated: "2026-11-25T12:45:51.924425558Z"
